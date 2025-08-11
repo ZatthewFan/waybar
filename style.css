@@ -14,30 +14,29 @@ window#waybar {
 #workspaces {
     margin-top: 6px;
     background: #fcf1e2;
-    opacity: 1;
     padding: 5px 5px;
     border-radius: 10px;
 }
 
 #workspaces button, #workspaces button.persistent {
-    padding: 0 8px;
+    padding: 3px 0.75rem;
     margin: 0 2px;
     background: transparent;
     border-radius: 4px;
     color: #000000;
     transition: background 0.2s, border 0.2s;
-    border: 2px solid transparent;  /* reserves space for the border when hovering */
 }
 
 #workspaces button.visible {
     color: #b87032;
-    opacity: 0.8;
     font-weight: bold;
 }
 
 #workspaces button.active {
-    border-top: 2px solid #b87032;
-    border-bottom: 2px solid #b87032;
+    /* border-top: 2px solid #b87032; */
+    /* border-bottom: 2px solid #b87032; */
+    /* background: linear-gradient(to bottom, #b87032 2px, transparent 2px, transparent calc(100% - 2px), #b87032 calc(100% - 2px)); */
+    background: linear-gradient(to bottom, transparent calc(100% - 2px), #b87032 calc(100% - 2px));
 }
 
 #workspaces button:hover {
@@ -60,7 +59,7 @@ window#waybar {
     margin-right: 3px;
     padding: 0 10px;
     min-width: 2.5rem;
-    border-radius: 10px;
+    border-radius: 90px;
     color: #161320;
 }
 
