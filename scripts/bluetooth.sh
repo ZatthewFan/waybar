@@ -10,5 +10,5 @@ if [[ -n "$status" ]]; then
         echo " On"
     fi
 else
-    echo " Off"
+    echo "󰂲 Off"
 fi
