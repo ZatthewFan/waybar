@@ -1,0 +1,138 @@
+{
+    "layer": "top",
+    "position": "top",
+    "monitor": "*",
+
+    "modules-left": [
+        // "custom/powermenu",
+        "custom/window"
+    ], 
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+    "modules-right": [
+        "custom/playerctl",
+        "custom/discord_badge",
+        "custom/keyboard",
+        "network",
+        "custom/bluetooth",
+        "pulseaudio",
+        // "pulseaudio#microphone",
+        "clock"
+    ],
+
+    // "custom/powermenu": {
+    //     "format": "⏻",
+    //     "on-click": "~/.config/waybar/scripts/powermenu.sh",
+    //     "interval": 10
+    // },
+
+    "custom/window": {
+        "exec": "~/.config/waybar/scripts/window_title.sh",
+        "interval": 1,
+        "format": "{}"
+    },
+
+    "hyprland/workspaces": {
+        "on-click": "activate",
+        "disable-scroll": true,
+        "all-outputs": true,
+        "show-special": true,
+        "persistent-workspaces": {
+            "*": [ 1, 2, 3, 10]
+        }
+    },
+
+    "custom/discord_badge": {
+        "exec": "~/.config/waybar/scripts/discord_badge.sh",
+        "interval": 10,
+        "format": "{}",
+        "tooltip": "Discord Unread Messages"
+    },
+
+    "custom/keyboard": {
+        "format": "⌨️ {}",
+        "exec": "hyprctl devices | awk '/Active Keyboard Layout/ {print $NF; exit}'",
+        "interval": 5
+    },
+
+    "network": {
+        "format": "{ifname}",
+        "format-wifi": "",
+        "format-ethernet": "󱘖",
+        "format-disconnected": "", //An empty format will hide the module.
+        "tooltip-format": "󰈁 {ifname} via {gwaddr}",
+        "tooltip-format-wifi": " {essid} ({signalStrength}%)",
+        "tooltip-format-ethernet": " {ifname} {ipaddr}/{cidr}",
+        "tooltip-format-disconnected": "Disconnected",
+        "max-length": 50
+    },
+
+    "custom/bluetooth": {
+        "exec": "~/.config/waybar/scripts/bluetooth.sh",
+        "interval": 20
+    },
+
+    "pulseaudio": {
+        "format": " {volume}%",
+        "format-muted": "",
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-scroll-up": "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+",
+        "on-scroll-down": "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%-",
+        "scroll-step": 5,
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "tooltip": true,
+        "tooltip-format": "{icon} at {volume}%"
+    },
+
+    "pulseaudio#microphone": {
+        "format": "{format_source}",
+        "format-source": "",
+        "format-source-muted": "",
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+        "on-scroll-up": "wpctl set-volume -l 1 @DEFAULT_AUDIO_SOURCE@ 5%+",
+        "on-scroll-down": "wpctl set-volume -l 1 @DEFAULT_AUDIO_SOURCE@ 5%-",
+        "scroll-step": 5,
+        "tooltip": true,
+        "tooltip-format": " at {volume}%"
+    },
+
+    "custom/playerctl": {
+        "format": "{}",
+        "exec": "~/.config/waybar/scripts/playerctl.sh",
+        "interval": 5
+    },
+
+    "clock": {
+        "format": " {:%a, %Y-%b-%d    %I:%M %p}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+                    "mode"          : "year",
+                    "mode-mon-col"  : 3,
+                    "weeks-pos"     : "right",
+                    "on-scroll"     : 1,
+                    "format": {
+                              "months":     "<span color='#ffead3'><b>{}</b></span>",
+                              "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                              "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+                              "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                              "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+                              }
+                    },
+        "actions":  {
+                    "on-click-right": "mode",
+                    "on-scroll-up": "tz_up",
+                    "on-scroll-down": "tz_down",
+                    "on-scroll-up": "shift_up",
+                    "on-scroll-down": "shift_down"
+                    }
+    }
+}

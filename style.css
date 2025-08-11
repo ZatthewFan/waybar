@@ -1,0 +1,210 @@
+/* Colors (gruvbox) */
+/*
+@define-color black	#282828;
+@define-color red	#cc241d;
+@define-color green	#98971a;
+@define-color yellow	#d79921;
+@define-color blue	#458588;
+@define-color purple	#b16286;
+@define-color aqua	#689d6a;
+@define-color gray	#a89984;
+@define-color brgray	#928374;
+@define-color brred	#fb4934;
+@define-color brgreen	#b8bb26;
+@define-color bryellow	#fabd2f;
+@define-color brblue	#83a598;
+@define-color brpurple	#d3869b;
+@define-color braqua	#8ec07c;
+@define-color white	#ebdbb2;
+@define-color bg2	#504945;
+ */
+
+/* Colors (dracula) */
+@define-color foreground	#f8f8f2;
+@define-color background	rgba(40, 42, 54, 0.5);
+@define-color orange	#ffb86c;
+@define-color gray	#44475a;
+@define-color black #21222c;
+@define-color red	#ff5555;
+@define-color green	#50fa7b;
+@define-color yellow	#f1fa8c;
+@define-color cyan	#8be9fd;
+@define-color blue	#6272a4;
+@define-color purple	#bd93f9;
+@define-color pink	#ff79c6;
+@define-color white #ffffff;
+@define-color brred #ff6e6e;
+@define-color brgreen #69ff94;
+@define-color bryellow #ffffa5;
+@define-color brcyan #a4ffff;
+@define-color brblue #6272a4;
+@define-color brpurple #d6acff;
+@define-color brpink #ff92df;
+
+@define-color arch_blue #89b4fa;
+
+@define-color workspace_background	@background;
+@define-color workspace_button	@foreground;
+@define-color workspace_active	@black;
+@define-color workspace_active_background	@green;
+@define-color workspace_urgent	@white;
+@define-color workspace_urgent_background	@brred;
+@define-color workspace_hover	@black;
+@define-color workspace_hover_background	@pink;
+@define-color critical	@red;
+@define-color warning	@yellow;
+
+@keyframes blink {
+    to {
+        background-color: @white;
+        color: @black;
+    }
+}
+
+* {
+    border: none;
+    border-radius: 10px;
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 14px;
+    min-height: 10px;
+}
+
+window#waybar {
+    background: transparent;
+}
+
+/* workspace styling */
+#workspaces {
+    margin-top: 6px;
+    background: #fcf1e2;
+    opacity: 1;
+    padding: 5px 5px;
+    border-radius: 10px;
+}
+
+#workspaces button, #workspaces button.persistent {
+    padding: 0 8px;
+    margin: 0 2px;
+    background: transparent;
+    border-radius: 4px;
+    color: #000000;
+    transition: background 0.2s, border 0.2s;
+    border: 2px solid transparent;  /* reserves space for the border when hovering */
+}
+
+#workspaces button.visible {
+    color: #b87032;
+    opacity: 0.8;
+    font-weight: bold;
+}
+
+#workspaces button.active {
+    border-top: 2px solid #b87032;
+    border-bottom: 2px solid #b87032;
+}
+
+#workspaces button:hover {
+    background: #b87032;
+    color: #fcf1e2;
+}
+
+/* other modules */
+#custom-window,
+#custom-playerctl,
+#custom-discord_badge,
+#network,
+#custom-bluetooth,
+#custom-keyboard,
+#pulseaudio,
+#pulseaudio.microphone,
+#clock {
+    margin-top: 6px;
+    margin-left: 3px;
+    margin-right: 3px;
+    padding: 0 10px;
+    min-width: 2.5rem;
+    border-radius: 10px;
+    color: #161320;
+}
+
+#custom-window {
+    /* background: transparent; */
+    background-color: #B5E8E0;
+}
+
+/* Modules - Individual styling */
+#custom-discord_badge {
+    background: #e8a2af;
+    font-size: 18px;
+}
+
+#custom-keyboard {
+    background: purple;
+}
+
+#network {
+    background: #f8bd96;
+    font-size: 18px;
+}
+
+#custom-bluetooth {
+    background: #c9cbff;
+}
+
+#pulseaudio {
+    background: #fae3b0;
+    min-width: 3.2rem;
+}
+
+#pulseaudio.microphone {
+    background: #f28fad;
+}
+
+#custom-playerctl {
+    background: #bb85ed;
+}
+
+#clock {
+    background: #abe9b3;
+}
+
+/* Make modules fit and avoid overflow */
+.modules-left,
+.modules-center,
+.modules-right {
+    min-width: 0;
+}
+
+.modules-right {
+    padding-right: 1.25rem;
+}
+
+.modules-left {
+    padding-left: 1.25rem;
+}
+
+/* Hover effects for better interactivity */
+#custom-discord_badge:hover,
+#custom-keyboard:hover,
+#network:hover,
+#custom-bluetooth:hover,
+#pulseaudio:hover,
+#pulseaudio.microphone:hover,
+#custom-playerctl:hover,
+#clock:hover,
+#custom-window:hover {
+    color: black;
+    opacity: 0.8;
+    transition: all 0.2s ease;
+}
+
+/* Special states */
+#pulseaudio.muted {
+    background: #ff5555;
+    min-width: 3.2rem;
+}
+
+#network.disconnected {
+    background: #ff5555;
+    border-color: #ff6e6e;
+}
