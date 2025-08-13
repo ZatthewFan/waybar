@@ -37,12 +37,13 @@
 
     "hyprland/workspaces": {
         "on-click": "activate",
+        // "sort-by-number": true,
+        // "persistent-workspaces": {
+        //     "*": [ 1, 2, 10 ]
+        // },
         "disable-scroll": true,
         "all-outputs": true,
-        "show-special": true,
-        "persistent-workspaces": {
-            "*": [ 1, 2, 10 ]
-        }
+        "show-special": true
     },
 
     "custom/playerctl": {
