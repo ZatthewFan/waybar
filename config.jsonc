@@ -29,7 +29,8 @@
 
     "custom/window": {
         "exec": "~/.config/waybar/scripts/window_title.sh",
-        "interval": 1,
+        "restart-interval": 0,
+        "return-type": "",
         "format": "{}",
         "max-length": 60
     },
@@ -48,12 +49,12 @@
         "format": "{}",
         "exec": "~/.config/waybar/scripts/playerctl.sh",
         "tooltip": false,
-        "interval": 5
+        "restart-interval": 0
     },
 
     "custom/discord_badge": {
         "exec": "~/.config/waybar/scripts/discord_badge.sh",
-        "interval": 10,
+        "interval": 5,
         "format": "{}",
         "tooltip": "Discord Unread Messages"
     },
@@ -79,7 +80,7 @@
     "custom/bluetooth": {
         "exec": "~/.config/waybar/scripts/bluetooth.sh",
         "tooltip": false,
-        "interval": 10
+        "interval": 5
     },
 
     "pulseaudio": {
