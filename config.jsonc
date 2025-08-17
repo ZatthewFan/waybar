@@ -50,6 +50,7 @@
         "format": "{}",
         "exec": "~/.config/waybar/scripts/playerctl.sh",
         "tooltip": false,
+        "max-length": 30,
         "restart-interval": 0
     },
 
@@ -69,7 +70,7 @@
     "network": {
         "format": "{ifname}",
         "format-wifi": "",
-        "format-ethernet": "󱘖",
+        "format-ethernet": "",
         "format-disconnected": "", //An empty format will hide the module.
         "tooltip-format": "󰈁 {ifname} via {gwaddr}",
         "tooltip-format-wifi": " {essid} ({signalStrength}%)",
